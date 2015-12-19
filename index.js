@@ -1,7 +1,6 @@
 'use strict';
 
-var xml2js = require('xml2js'),
-    typeis = require('type-is');
+var xml2js = require('xml2js');
 
 module.exports = function(bodyParser) {
   if(bodyParser.xml) {
@@ -21,7 +20,7 @@ module.exports = function(bodyParser) {
       // First, run the body through the text parser.
       textParser(req, res, function(err) {
         if(err) { return next(err); }
-        if(!typeis(req, xmlTypes)) { return next(); }
+        if(typeof req.body !== 'string') { return next(); }
 
         // Then, parse as XML.
         var parser = new xml2js.Parser(options.xmlParseOptions);

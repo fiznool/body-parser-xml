@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/fiznool/body-parser-xml#readme",
   "dependencies": {
-    "type-is": "^1.6.10",
     "xml2js": "^0.4.15"
   },
   "devDependencies": {
