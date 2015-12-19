@@ -2,8 +2,7 @@
 
 var express = require('express'),
     request = require('supertest'),
-    bodyParser = require('body-parser'),
-    expect = require('chai').expect;
+    bodyParser = require('body-parser');
 
 // Add xml parsing to bodyParser.
 // In real-life you'd `require('body-parser-xml')`.
@@ -14,6 +13,7 @@ describe('XML Body Parser', function() {
 
   var createServer = function(options) {
     app = express();
+    app.set('env', 'test');
     app.use(bodyParser.xml(options));
     app.post('/', function(req, res) {
       res.status(200).send({ parsed: req.body });
@@ -40,6 +40,16 @@ describe('XML Body Parser', function() {
     request(app)
       .post('/')
       .set('Content-Type', 'text/xml')
+      .send('<customer><name>Bob</name></customer>')
+      .expect(200, { parsed: { customer: { name: ['Bob'] } } }, done);
+  });
+
+  it('should parse a body with content-type application/rss+xml', function(done) {
+    createServer();
+
+    request(app)
+      .post('/')
+      .set('Content-Type', 'application/rss+xml')
       .send('<customer><name>Bob</name></customer>')
       .expect(200, { parsed: { customer: { name: ['Bob'] } } }, done);
   });

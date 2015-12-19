@@ -10,7 +10,7 @@ module.exports = function(bodyParser) {
     return;
   }
 
-  var xmlTypes = ['application/xml', 'text/xml'];
+  var xmlTypes = ['*/xml', '+xml'];
 
   function xml(options) {
     options = options || {};
