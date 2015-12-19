@@ -1,7 +1,7 @@
 {
   "name": "body-parser-xml",
-  "version": "1.0.0-alpha1",
-  "description": "Adds an XML parser to body-parser.",
+  "version": "1.0.0",
+  "description": "XML parser middleware for express.js.",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/mocha/bin/mocha test.js"
@@ -13,6 +13,7 @@
   "keywords": [
     "express",
     "xml",
+    "middleware",
     "body-parser"
   ],
   "author": "Tom Spencer <fiznool@gmail.com>",
@@ -29,5 +30,8 @@
     "express": "^4.13.3",
     "mocha": "^2.3.4",
     "supertest": "^1.1.0"
+  },
+  "engines": {
+    "node": ">= 0.10"
   }
 }
