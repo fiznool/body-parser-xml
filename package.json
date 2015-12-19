@@ -1,0 +1,35 @@
+{
+  "name": "body-parser-xml",
+  "version": "1.0.0-alpha1",
+  "description": "Adds an XML parser to body-parser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiznool/body-parser-xml.git"
+  },
+  "keywords": [
+    "express",
+    "xml",
+    "body-parser"
+  ],
+  "author": "Tom Spencer <fiznool@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fiznool/body-parser-xml/issues"
+  },
+  "homepage": "https://github.com/fiznool/body-parser-xml#readme",
+  "dependencies": {
+    "type-is": "^1.6.10",
+    "xml2js": "^0.4.15"
+  },
+  "devDependencies": {
+    "body-parser": "^1.14.2",
+    "chai": "^3.4.1",
+    "express": "^4.13.3",
+    "mocha": "^2.3.4",
+    "supertest": "^1.1.0"
+  }
+}
