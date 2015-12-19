@@ -36,6 +36,8 @@ An XML-based request is determined by the value of the `Content-Type` header. If
 - `application/xml`
 - `application/rss+xml`
 
+### Options
+
 You can also pass in options:
 
 ``` js
@@ -44,23 +46,23 @@ app.use(bodyParser.xml(options));
 
 The `options` object accepts any of the following keys:
 
-### defaultCharset
+#### defaultCharset
 
 Specify the default character set for the text content if the charset is not specified in the `Content-Type` header of the request. Defaults to `utf-8`.
 
-### inflate
+#### inflate
 
 When set to `true`, then deflated (compressed) bodies will be inflated; when `false`, deflated bodies are rejected. Defaults to `true`.
 
-### limit
+#### limit
 
 Controls the maximum request body size. If this is a number, then the value specifies the number of bytes; if it is a string, the value is passed to the [bytes](https://www.npmjs.com/package/bytes) library for parsing. Defaults to `'100kb'`.
 
-### verify
+#### verify
 
 The `verify` option, if supplied, is called as `verify(req, res, buf, encoding)`, where `buf` is a `Buffer` of the raw request body and `encoding` is the encoding of the request. The parsing can be aborted by throwing an error.
 
-### xmlParseOptions
+#### xmlParseOptions
 
 This option controls the behaviour of the XML parser. You can pass any option that is supported by the [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) library: [see here](https://github.com/Leonidas-from-XIV/node-xml2js#options) for a list of these options.
 
