@@ -65,8 +65,30 @@ describe('XML Body Parser', function() {
     request(app)
       .post('/')
       .set('Content-Type', 'text/xml')
-      .send('<CUSTOMER><name>  Bob </name></CUSTOMER>')
+      .send('<CUSTOMER><name>Bob</name></CUSTOMER>')
       .expect(200, { parsed: { customer: { name: 'Bob' } } }, done);
+  });
+
+  it('should accept custom ContentType as array', function(done) {
+    createServer({
+      type: ['application/custom-xml-type']
+    });
+    request(app)
+        .post('/')
+        .set('Content-Type', 'application/custom-xml-type')
+        .send('<customer><name>Bob</name></customer>')
+        .expect(200, { parsed: { customer: { name: ['Bob'] } } }, done);
+  });
+
+  it('should accept custom ContentType as string', function(done) {
+    createServer({
+      type: 'application/custom-xml-type'
+    });
+    request(app)
+        .post('/')
+        .set('Content-Type', 'application/custom-xml-type')
+        .send('<customer><name>Bob</name></customer>')
+        .expect(200, { parsed: { customer: { name: ['Bob'] } } }, done);
   });
 
   it('should ignore non-XML', function(done) {

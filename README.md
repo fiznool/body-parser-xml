@@ -35,11 +35,13 @@ app.use(bodyParser.xml());
 
 This will parse any XML-based request and place it as a JavaScript object on `req.body` for your route handlers to use.
 
-An XML-based request is determined by the value of the `Content-Type` header. If this ends in `xml`, it will be parsed as XML. For example, the following Content-Types will all match:
+An XML-based request is determined by the value of the `Content-Type` header. If this ends in `/xml` or `/+xml`, it will be parsed as XML. For example, the following Content-Types will all match:
 
 - `text/xml`
 - `application/xml`
 - `application/rss+xml`
+
+But you can also set your own see Options:type
 
 ### Options
 
@@ -62,6 +64,12 @@ When set to `true`, then deflated (compressed) bodies will be inflated; when `fa
 #### limit
 
 Controls the maximum request body size. If this is a number, then the value specifies the number of bytes; if it is a string, the value is passed to the [bytes](https://www.npmjs.com/package/bytes) library for parsing. Defaults to `'100kb'`.
+
+
+#### type
+
+set your own valid Content-Type that will be parsed, can be a string or an array, already valid topics are '*/xml', '+xml'
+
 
 #### verify
 
