@@ -34,6 +34,10 @@ module.exports = function(bodyParser) {
             return next(err);
           }
 
+          // Return raw body in case 
+          // user needs it
+          req.raw = req.body;
+
           req.body = xml || req.body;
           next();
         });
