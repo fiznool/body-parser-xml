@@ -15,7 +15,7 @@ module.exports = function(bodyParser) {
     options = options || {};
 
     options.type = options.type || DEFAULT_TYPES;
-    if(!Array.isArray(options.type)) {
+    if(typeof options.type !== 'function' && !Array.isArray(options.type)) {
       options.type = [options.type];
     }
 
