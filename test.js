@@ -93,7 +93,7 @@ describe('XML Body Parser', function() {
 
   it('should accept custom ContentType as function', function(done) {
     createServer({
-      type: () => true
+      type: function() { return true }
     });
     request(app)
         .post('/')
