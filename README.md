@@ -67,7 +67,7 @@ Controls the maximum request body size. If this is a number, then the value spec
 
 #### type
 
-The expected `Content-Type` of the XML request to be parsed. Overrides the default content types, can be a String or Array of Strings.
+The type option is used to determine what media type the middleware will parse. This option can be a string, array of strings, or a function. If not a function, type option is passed directly to the type-is library and this can be an extension name (like xml), a mime type (like application/xml), or a mime type with a wildcard (like */* or */xml). If a function, the type option is called as fn(req) and the request is parsed if it returns a truthy value. Defaults to `['*/xml', '+xml']`.
 
 #### verify
 
