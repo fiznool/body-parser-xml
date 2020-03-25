@@ -1,8 +1,8 @@
 'use strict';
 
-var xml2js = require('xml2js');
+const xml2js = require('xml2js');
 
-var DEFAULT_TYPES = ['*/xml', '+xml'];
+const DEFAULT_TYPES = ['*/xml', '+xml'];
 
 module.exports = function(bodyParser) {
   if(bodyParser.xml) {
@@ -19,7 +19,7 @@ module.exports = function(bodyParser) {
       options.type = [options.type];
     }
 
-    var textParser = bodyParser.text(options);
+    const textParser = bodyParser.text(options);
     return function xmlParser(req, res, next) {
       // First, run the body through the text parser.
       textParser(req, res, function(err) {
@@ -27,7 +27,7 @@ module.exports = function(bodyParser) {
         if(typeof req.body !== 'string') { return next(); }
 
         // Then, parse as XML.
-        var parser = new xml2js.Parser(options.xmlParseOptions);
+        const parser = new xml2js.Parser(options.xmlParseOptions);
         parser.parseString(req.body, function(err, xml) {
           if(err) {
             err.status = 400;

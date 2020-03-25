@@ -4,7 +4,8 @@
   "description": "XML parser middleware for express.js.",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha test.js"
+    "lint": "eslint \"**/*.js\" --fix",
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
@@ -26,12 +27,13 @@
     "xml2js": "^0.4.16"
   },
   "devDependencies": {
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4",
-    "mocha": "^2.4.5",
-    "supertest": "^1.2.0"
+    "body-parser": "^1.19.0",
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "mocha": "^7.1.1",
+    "supertest": "^4.0.2"
   },
   "engines": {
-    "node": ">= 0.10"
+    "node": ">=10"
   }
 }

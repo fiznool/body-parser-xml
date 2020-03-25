@@ -12,7 +12,7 @@ This is really useful if you want to deal with plain old JavaScript objects, but
 ## Installation
 
 ```
-npm install --save express body-parser body-parser-xml
+npm install express body-parser body-parser-xml
 ```
 
 ## Usage
@@ -22,14 +22,14 @@ This library adds an `xml` method to the `body-parser` object.
 Initialise like so:
 
 ``` js
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 require('body-parser-xml')(bodyParser);
 ```
 
 Once initialised, you can use it just like any other `body-parser` middleware:
 
 ``` js
-var app = require('express')();
+const app = require('express')();
 app.use(bodyParser.xml());
 ```
 
@@ -80,12 +80,12 @@ This option controls the behaviour of the XML parser. You can pass any option th
 ## Example
 
 ``` js
-var express = require('express'),
-    bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
 
 require('body-parser-xml')(bodyParser);
 
-var app = express();
+const app = express();
 app.use(bodyParser.xml({
   limit: '1MB',   // Reject payload bigger than 1 MB
   xmlParseOptions: {

@@ -1,6 +1,6 @@
 'use strict';
 
-var express = require('express'),
+const express = require('express'),
     request = require('supertest'),
     bodyParser = require('body-parser');
 
@@ -9,9 +9,9 @@ var express = require('express'),
 require('./index.js')(bodyParser);
 
 describe('XML Body Parser', function() {
-  var app;
+  let app;
 
-  var createServer = function(options) {
+  const createServer = function(options) {
     app = express();
     app.set('env', 'test');
     app.use(bodyParser.xml(options));
