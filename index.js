@@ -27,7 +27,15 @@ module.exports = function(bodyParser) {
         if(typeof req.body !== 'string') { return next(); }
 
         // Then, parse as XML.
-        const parser = new xml2js.Parser(options.xmlParseOptions);
+        const xmlParseOptions = {
+          ...options.xmlParseOptions,
+          // Always opt-in to async mode.
+          async: true
+        };
+        const parser = new xml2js.Parser(xmlParseOptions);
+
+        // In some cases xml2js.Parser parseString() can throw an error after executing the callback.
+
         parser.parseString(req.body, function(err, xml) {
           if(err) {
             err.status = 400;

@@ -93,7 +93,6 @@ describe('XML Body Parser', function() {
 
   it('should ignore non-XML', function(done) {
     createServer();
-
     request(app)
       .post('/')
       .set('Content-Type', 'text/plain')
@@ -109,4 +108,14 @@ describe('XML Body Parser', function() {
       .send('<invalid-xml>')
       .expect(400, done);
   });
+
+  it('should not throw an exception after the callback is returned', function(done) {
+    // Guards against https://github.com/Leonidas-from-XIV/node-xml2js/issues/400
+    createServer();
+    request(app)
+      .post('/')
+      .set('Content-Type', 'text/xml')
+      .send('x<foo>test</foo><bar>test</bar></data>')
+      .expect(400, done);
+  })
 });
