@@ -15,9 +15,6 @@ module.exports = function(bodyParser) {
     options = options || {};
 
     options.type = options.type || DEFAULT_TYPES;
-    if(!Array.isArray(options.type)) {
-      options.type = [options.type];
-    }
 
     const textParser = bodyParser.text(options);
     return function xmlParser(req, res, next) {

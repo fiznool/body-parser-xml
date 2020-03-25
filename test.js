@@ -55,7 +55,7 @@ describe('XML Body Parser', function() {
   });
 
   it('should accept xmlParseOptions', function(done) {
-   createServer({
+    createServer({
       xmlParseOptions: {
         normalize: true,     // Trim whitespace inside text nodes
         normalizeTags: true, // Transform tags to lowercase
@@ -87,6 +87,16 @@ describe('XML Body Parser', function() {
     request(app)
         .post('/')
         .set('Content-Type', 'application/custom-xml-type')
+        .send('<customer><name>Bob</name></customer>')
+        .expect(200, { parsed: { customer: { name: ['Bob'] } } }, done);
+  });
+
+  it('should accept custom ContentType as function', function(done) {
+    createServer({
+      type: function() { return true }
+    });
+    request(app)
+        .post('/')
         .send('<customer><name>Bob</name></customer>')
         .expect(200, { parsed: { customer: { name: ['Bob'] } } }, done);
   });
