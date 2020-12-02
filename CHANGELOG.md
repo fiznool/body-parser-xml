@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.1] - 2020-12-02
+### Updated
+- Update dependencies and test against node 14.
+
 ## [2.0.0] - 2020-03-25
 ### Fixed
 - Ensure `done` callback is not called multiple times #4
@@ -17,5 +21,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## 1.0.0 - 2015-12-19
 Initial Release.
 
+[2.0.1]: https://github.com/fiznool/body-parser-xml/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/fiznool/body-parser-xml/compare/v1.1.0...v2.0.0
 [1.1.0]: https://github.com/fiznool/body-parser-xml/compare/v1.0.0...v1.1.0
