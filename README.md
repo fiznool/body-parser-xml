@@ -5,7 +5,8 @@ Adds XML parsing to the [body-parser](https://github.com/expressjs/body-parser) 
 This is really useful if you want to deal with plain old JavaScript objects, but you need to interface with XML APIs.
 
 [![Build Status](https://github.com/fiznool/body-parser-xml/workflows/Node.js%20CI/badge.svg)](https://github.com/fiznool/body-parser-xml/workflows/Node.js%20CI/badge.svg)
-[![npm version](https://badge.fury.io/js/body-parser-xml.svg)](http://badge.fury.io/js/body-parser-xml)
+[![npm version](https://img.shields.io/npm/v/body-parser-xml)](https://img.shields.io/npm/v/body-parser-xml)
+[![npm downloads per week](https://img.shields.io/npm/dw/body-parser-xml?color=blue)](https://img.shields.io/npm/dw/body-parser-xml?color=blue)
 [![Dependency Status](https://david-dm.org/fiznool/body-parser-xml.svg)](https://david-dm.org/fiznool/body-parser-xml)
 [![devDependency Status](https://david-dm.org/fiznool/body-parser-xml/dev-status.svg)](https://david-dm.org/fiznool/body-parser-xml#info=devDependencies)
 
