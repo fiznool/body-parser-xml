@@ -22,14 +22,14 @@ This library adds an `xml` method to the `body-parser` object.
 
 Initialise like so:
 
-``` js
+```js
 const bodyParser = require('body-parser');
 require('body-parser-xml')(bodyParser);
 ```
 
 Once initialised, you can use it just like any other `body-parser` middleware:
 
-``` js
+```js
 const app = require('express')();
 app.use(bodyParser.xml());
 ```
@@ -48,7 +48,7 @@ If you need to match against a custom `Content-Type` header, pass in the `type` 
 
 You can also pass in options:
 
-``` js
+```js
 app.use(bodyParser.xml(options));
 ```
 
@@ -68,7 +68,7 @@ Controls the maximum request body size. If this is a number, then the value spec
 
 #### type
 
-The type option is used to determine what media type the middleware will parse. This option can be a string, array of strings, or a function. If not a function, type option is passed directly to the type-is library and this can be an extension name (like xml), a mime type (like application/xml), or a mime type with a wildcard (like */* or */xml). If a function, the type option is called as fn(req) and the request is parsed if it returns a truthy value. Defaults to `['*/xml', '+xml']`.
+The type option is used to determine what media type the middleware will parse. This option can be a string, array of strings, or a function. If not a function, type option is passed directly to the type-is library and this can be an extension name (like xml), a mime type (like application/xml), or a mime type with a wildcard (like _/_ or _/xml). If a function, the type option is called as fn(req) and the request is parsed if it returns a truthy value. Defaults to `['_/xml', '+xml']`.
 
 #### verify
 
@@ -80,30 +80,31 @@ This option controls the behaviour of the XML parser. You can pass any option th
 
 ## Example
 
-``` js
+```js
 const express = require('express');
 const bodyParser = require('body-parser');
 
 require('body-parser-xml')(bodyParser);
 
 const app = express();
-app.use(bodyParser.xml({
-  limit: '1MB',   // Reject payload bigger than 1 MB
-  xmlParseOptions: {
-    normalize: true,     // Trim whitespace inside text nodes
-    normalizeTags: true, // Transform tags to lowercase
-    explicitArray: false // Only put nodes in array if >1
-  }
-}));
+app.use(
+  bodyParser.xml({
+    limit: '1MB', // Reject payload bigger than 1 MB
+    xmlParseOptions: {
+      normalize: true, // Trim whitespace inside text nodes
+      normalizeTags: true, // Transform tags to lowercase
+      explicitArray: false, // Only put nodes in array if >1
+    },
+  }),
+);
 
-app.post('/users', function(req, res, body) {
+app.post('/users', function (req, res, body) {
   // Any request with an XML payload will be parsed
   // and a JavaScript object produced on req.body
   // corresponding to the request payload.
   console.log(req.body);
   res.status(200).end();
 });
-
 ```
 
 ## Motivation
