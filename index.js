@@ -44,17 +44,14 @@ module.exports = function (bodyParser) {
           }
 
           // Prevent setting __proto__ and constructor.prototype
-          const safe = {};
-          for (const key in xml) {
-            if (
-              key !== '__proto__' &&
-              key !== 'constructor' &&
-              key !== 'prototype'
-            ) {
-              safe[key] = xml[key];
-            }
+          if(xml) {
+            // Guard against prototype pollution
+            delete xml.__proto__;
+            delete xml.constructor;
+            delete xml.prototype;
+  
+            req.body = xml;
           }
-          req.body = safe || req.body;
           next();
         });
       });
