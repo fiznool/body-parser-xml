@@ -130,4 +130,13 @@ describe('XML Body Parser', function () {
       .send('x<foo>test</foo><bar>test</bar></data>')
       .expect(400, done);
   });
+
+  it('should not set/change prototype', function (done) {
+    createServer();
+    request(app)
+      .post('/')
+      .set('Content-Type', 'application/xml')
+      .send('<__proto__><name>Bob</name></__proto__>')
+      .expect(200, { parsed: { name: ['Bob'] } }, done);
+  });
 });
