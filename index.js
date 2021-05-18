@@ -44,12 +44,12 @@ module.exports = function (bodyParser) {
           }
 
           // Prevent setting __proto__ and constructor.prototype
-          if(xml) {
+          if (xml) {
             // Guard against prototype pollution
             delete xml.__proto__;
             delete xml.constructor;
             delete xml.prototype;
-  
+
             req.body = xml;
           }
           next();
