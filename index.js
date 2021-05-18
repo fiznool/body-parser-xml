@@ -43,9 +43,18 @@ module.exports = function (bodyParser) {
             return next(err);
           }
 
-          // Set the prototype of parsed xml object to null, so that prototype pollution is prevented.
-          xml.__proto__ = undefined;
-          req.body = xml || req.body;
+          // Prevent setting __proto__ and constructor.prototype
+          const safe = {};
+          for (const key in xml) {
+            if (
+              key !== '__proto__' &&
+              key !== 'constructor' &&
+              key !== 'prototype'
+            ) {
+              safe[key] = xml[key];
+            }
+          }
+          req.body = safe || req.body;
           next();
         });
       });
