@@ -130,4 +130,31 @@ describe('XML Body Parser', function () {
       .send('x<foo>test</foo><bar>test</bar></data>')
       .expect(400, done);
   });
+
+  it('should not set/change prototype using __proto__', function (done) {
+    createServer();
+    request(app)
+      .post('/')
+      .set('Content-Type', 'application/xml')
+      .send('<__proto__><name>Bob</name></__proto__>')
+      .expect(200, { parsed: {} }, done);
+  });
+
+  it('should not set/change using prototype', function (done) {
+    createServer();
+    request(app)
+      .post('/')
+      .set('Content-Type', 'application/xml')
+      .send('<prototype><name>Bob</name></prototype>')
+      .expect(200, { parsed: {} }, done);
+  });
+
+  it('should not set/change using constructor', function (done) {
+    createServer();
+    request(app)
+      .post('/')
+      .set('Content-Type', 'application/xml')
+      .send('<constructor><name>Bob</name></constructor>')
+      .expect(200, { parsed: {} }, done);
+  });
 });

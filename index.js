@@ -43,7 +43,16 @@ module.exports = function (bodyParser) {
             return next(err);
           }
 
-          req.body = xml || req.body;
+          if (xml) {
+            // Guard against prototype pollution
+            delete xml.__proto__;
+            delete xml.constructor;
+            delete xml.prototype;
+
+            // Set result on the request body
+            req.body = xml;
+          }
+
           next();
         });
       });
