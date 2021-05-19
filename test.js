@@ -140,7 +140,7 @@ describe('XML Body Parser', function () {
       .expect(200, { parsed: {} }, done);
   });
 
-  it('should not set/change using __proto__', function (done) {
+  it('should not set/change using prototype', function (done) {
     createServer();
     request(app)
       .post('/')
