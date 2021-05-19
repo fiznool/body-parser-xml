@@ -1,6 +1,6 @@
 {
   "name": "body-parser-xml",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "XML parser middleware for express.js.",
   "main": "index.js",
   "scripts": {
