@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.4] - 2023-04-11
+
+### Updated
+
+- Update xml2js dependency to fix [a reported vulnerability](https://github.com/Leonidas-from-XIV/node-xml2js/issues/663).
+- Update other dependencies and test against node 18.
+
 ## [2.0.3] - 2021-05-19
 
 ### Fixed
@@ -42,6 +49,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Initial Release.
 
+[2.0.4]: https://github.com/fiznool/body-parser-xml/compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/fiznool/body-parser-xml/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/fiznool/body-parser-xml/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/fiznool/body-parser-xml/compare/v2.0.0...v2.0.1
