@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.5] - 2023-04-11
+
+### Fixed
+
+- Downgraded mocha from v10 to v8 so that tests still work when run against node 10.
+
 ## [2.0.4] - 2023-04-11
 
 ### Updated
@@ -49,6 +55,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Initial Release.
 
+[2.0.5]: https://github.com/fiznool/body-parser-xml/compare/v2.0.4...v2.0.5
 [2.0.4]: https://github.com/fiznool/body-parser-xml/compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/fiznool/body-parser-xml/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/fiznool/body-parser-xml/compare/v2.0.1...v2.0.2
